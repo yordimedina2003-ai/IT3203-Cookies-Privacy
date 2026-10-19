@@ -1,175 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
+/* General website style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fdf6ec;
+    color: #4e342e;
+    line-height: 1.6;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Concepts - Cookies and Privacy</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+/* Website header */
+#site-header {
+    background-color: #b07d62;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
 
-<body>
+/* Title and cookie image */
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
 
-    <!-- Website header -->
-    <header id="site-header">
-        <h1>Key Concepts</h1>
-        <p>Important things to know about cookies</p>
-    </header>
+#site-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
 
-    <!-- Navigation menu -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="how-cookies-work.html">How Cookies Work</a>
-        <a href="privacy-security.html">Privacy</a>
-        <a href="key-concepts.html">Key Concepts</a>
-        <a href="references.html">References</a>
-        <a href="about.html">About Me</a>
-    </nav>
+#site-header p {
+    margin-top: 10px;
+    font-size: 16px;
+}
 
-    <main class="container">
+/* Bitten cookie image */
+.title-cookie {
+    width: 85px;
+    height: auto;
+    flex-shrink: 0;
+}
 
-        <!-- Introduction -->
-        <section>
-            <h2>Understanding Cookies</h2>
+/* Navigation menu */
+nav {
+    background-color: #d2a679;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+}
 
-            <p>
-                While researching cookies, I learned
-                about different concepts that help
-                explain how websites use information.
-            </p>
+/* Navigation links */
+nav a {
+    color: #fffaf5;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
 
-            <p>
-                These are six important concepts
-                that I think everyone should know.
-            </p>
-        </section>
+/* Hover effect */
+nav a:hover {
+    background-color: #8d5a3b;
+    color: white;
+}
 
-        <!-- Concept 1 -->
-        <section>
-            <h2>1. HTTP Cookies</h2>
+/* Main content */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
 
-            <p>
-                HTTP cookies are small pieces of data
-                that websites can store in a browser.
-                They help websites remember information
-                about a user.
-            </p>
-        </section>
+/* Content sections */
+section {
+    background-color: #fff8f0;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 2px solid #e6c7a1;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
 
-        <!-- Concept 2 -->
-        <section>
-            <h2>2. Session Cookies</h2>
+/* Section headings */
+h2 {
+    color: #8d5a3b;
+    margin-top: 0;
+}
 
-            <p>
-                Session cookies are temporary cookies.
-                They usually disappear when the browser
-                session ends.
-            </p>
+/* Paragraphs */
+p {
+    margin-bottom: 15px;
+}
 
-            <p>
-                For example, they can help a website
-                remember that I am logged in while
-                I move between pages.
-            </p>
-        </section>
+/* Lists */
+ul, ol {
+    padding-left: 25px;
+}
 
-        <!-- Concept 3 -->
-        <section>
-            <h2>3. Persistent Cookies</h2>
+li {
+    margin-bottom: 8px;
+}
 
-            <p>
-                Persistent cookies can stay in a
-                browser after it is closed.
-                They have an expiration time.
-            </p>
+/* Links inside sections */
+section a {
+    color: #a35c2c;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-            <p>
-                For example, a website can use them
-                to remember my language preferences
-                when I visit again.
-            </p>
-        </section>
+section a:hover {
+    color: #6d3f24;
+    text-decoration: underline;
+}
 
-        <!-- Concept 4 -->
-        <section>
-            <h2>4. First-Party Cookies</h2>
+/* Table design */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-            <p>
-                First-party cookies are created by
-                the website I am visiting.
-            </p>
+th {
+    background-color: #b07d62;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
 
-            <p>
-                They can help websites remember
-                settings and provide a better
-                browsing experience.
-            </p>
-        </section>
+td {
+    border: 1px solid #e6c7a1;
+    padding: 12px;
+}
 
-        <!-- Concept 5 -->
-        <section>
-            <h2>5. Third-Party Cookies</h2>
+tr:nth-child(even) {
+    background-color: #f5e4d2;
+}
 
-            <p>
-                Third-party cookies come from
-                a different domain than the
-                website I am visiting.
-            </p>
+/* Footer */
+footer {
+    background-color: #b07d62;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 
-            <p>
-                They may be used for advertising
-                and tracking activity across
-                different websites.
-            </p>
-        </section>
+footer a {
+    color: #fff3e0;
+    text-decoration: none;
+}
 
-        <!-- Concept 6 -->
-        <section>
-            <h2>6. Cookie Consent</h2>
+footer a:hover {
+    text-decoration: underline;
+}
 
-            <p>
-                Cookie consent is when a website
-                asks users for permission to
-                use certain types of cookies.
-            </p>
+/* Mobile design */
+@media (max-width: 600px) {
 
-            <p>
-                Some websites show cookie banners
-                that let users accept or reject
-                optional cookies.
-            </p>
-        </section>
+    #site-header {
+        padding: 25px 12px;
+    }
 
-        <!-- Conclusion -->
-        <section>
-            <h2>What I Learned</h2>
+    #site-header h1 {
+        font-size: 26px;
+    }
 
-            <p>
-                Before researching this topic,
-                I did not know there were
-                different types of cookies.
-            </p>
+    #site-header p {
+        font-size: 14px;
+    }
 
-            <p>
-                I learned that cookies can make
-                websites easier to use, but they
-                can also create privacy concerns.
-                Understanding these concepts helps
-                me make better decisions online.
-            </p>
-        </section>
+    .title-row {
+        gap: 10px;
+    }
 
-    </main>
+    .title-cookie {
+        width: 55px;
+    }
 
-    <!-- Footer -->
-    <footer>
-        <p>IT 3203 - Web Development</p>
-        <p>This website was created for a class project.</p>
+    nav {
+        gap: 8px;
+        padding: 10px;
+    }
 
-        <a href="https://ksuweb.github.io/IT3203/">
-            IT 3203 Class Website
-        </a>
-    </footer>
+    nav a {
+        font-size: 14px;
+        padding: 8px;
+    }
 
-</body>
-</html>
+    .container {
+        padding: 0 12px;
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
+        overflow-wrap: anywhere;
+    }
+}
