@@ -33,11 +33,15 @@ body {
     font-size: 16px;
 }
 
-/* Bitten cookie image */
+/* Bitten cookie photo next to the title */
 .title-cookie {
-    width: 85px;
+    width: 110px;
     height: auto;
     flex-shrink: 0;
+    border-radius: 12px;
+    border: 3px solid #fff3e0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff8f0;
 }
 
 /* Navigation menu */
@@ -59,8 +63,9 @@ nav a {
     transition: background-color 0.2s;
 }
 
-/* Hover effect */
-nav a:hover {
+/* Hover effect and the link of the current page */
+nav a:hover,
+nav a.active {
     background-color: #8d5a3b;
     color: white;
 }
@@ -154,8 +159,317 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Code example box */
+.code-box {
+    background-color: #4e342e;
+    color: #fff3e0;
+    padding: 14px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/* Small "tip" box used on content pages */
+.tip {
+    background-color: #f5e4d2;
+    border-left: 5px solid #b07d62;
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+/* =========================================
+   QUIZ PAGE
+   ========================================= */
+
+/* Hide an element (used by quiz.js) */
+.hidden {
+    display: none !important;
+}
+
+/* Buttons */
+.btn {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background-color: #8d5a3b;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6d3f24;
+}
+
+.btn-secondary {
+    background-color: #e6c7a1;
+    color: #4e342e;
+}
+
+.btn-secondary:hover {
+    background-color: #d2a679;
+}
+
+/* Timer bar that sticks to the top while scrolling */
+#timer-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    background-color: #4e342e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Last minute: timer turns red */
+#timer-bar.warning {
+    background-color: #c62828;
+}
+
+/* Each question card */
+.question {
+    background-color: #fff8f0;
+    border: 2px solid #e6c7a1;
+    border-radius: 14px;
+    padding: 20px 25px;
+    margin: 0 0 20px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.question legend {
+    font-weight: bold;
+    color: #8d5a3b;
+    padding: 0 8px;
+}
+
+.question legend em {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* Round question number */
+.q-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #b07d62;
+    color: white;
+    margin-right: 6px;
+}
+
+/* Text box and dropdown */
+.question input[type="text"],
+.question select {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 2px solid #d2a679;
+    border-radius: 8px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.question input[type="text"]:focus,
+.question select:focus {
+    outline: none;
+    border-color: #8d5a3b;
+    box-shadow: 0 0 0 3px rgba(141, 90, 59, 0.2);
+}
+
+/* Radio and checkbox options look like clickable rows */
+.choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    border: 1px solid #e6c7a1;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.choice:hover {
+    background-color: #f5e4d2;
+}
+
+.choice input {
+    accent-color: #8d5a3b;
+    width: 18px;
+    height: 18px;
+}
+
+/* Feedback text under each question after submit */
+.feedback {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+.question.correct {
+    border-color: #2e7d32;
+    background-color: #e8f5e9;
+}
+
+.question.correct .feedback {
+    color: #2e7d32;
+}
+
+.question.incorrect {
+    border-color: #c62828;
+    background-color: #ffebee;
+}
+
+.question.incorrect .feedback {
+    color: #c62828;
+}
+
+.quiz-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Results panel */
+.time-up {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.result-summary {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.result-summary.pass {
+    background-color: #e8f5e9;
+    border: 2px solid #2e7d32;
+}
+
+.result-summary.fail {
+    background-color: #ffebee;
+    border: 2px solid #c62828;
+}
+
+.result-badge {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+}
+
+.pass .result-badge {
+    background-color: #2e7d32;
+}
+
+.fail .result-badge {
+    background-color: #c62828;
+}
+
+.result-stats p {
+    margin: 4px 0;
+}
+
+/* Score bar */
+.score-bar {
+    height: 14px;
+    background-color: #e6c7a1;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.score-fill {
+    height: 100%;
+    transition: width 0.6s;
+}
+
+.score-fill.pass {
+    background-color: #2e7d32;
+}
+
+.score-fill.fail {
+    background-color: #c62828;
+}
+
+/* Results table */
+.table-wrap {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.results-table .row-correct td {
+    background-color: #f1f8f1;
+}
+
+.results-table .row-incorrect td {
+    background-color: #fdf0f0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.tag-correct {
+    background-color: #2e7d32;
+}
+
+.tag-incorrect {
+    background-color: #c62828;
+}
+
 /* Mobile design */
 @media (max-width: 600px) {
+
+    .result-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .question {
+        padding: 15px;
+    }
+
+    .quiz-buttons {
+        flex-direction: column;
+    }
+
 
     #site-header {
         padding: 25px 12px;
@@ -174,7 +488,7 @@ footer a:hover {
     }
 
     .title-cookie {
-        width: 55px;
+        width: 75px;
     }
 
     nav {

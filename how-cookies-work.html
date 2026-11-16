@@ -12,16 +12,23 @@
 
     <!-- Website header -->
     <header id="site-header">
-        <h1>How Cookies Work</h1>
+        <div class="title-row">
+            <!-- Cookie photo next to the title (falls back to a local drawing if the photo cannot load) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Choco_chip_cookie_bitten.jpg"
+                 alt="Bitten chocolate chip cookie" class="title-cookie"
+                 onerror="this.onerror=null; this.src='images/cookie.svg';">
+            <h1>How Cookies Work</h1>
+        </div>
         <p>Learning how websites remember information</p>
     </header>
 
     <!-- Navigation menu -->
     <nav>
         <a href="index.html">Home</a>
-        <a href="how-cookies-work.html">How Cookies Work</a>
+        <a href="how-cookies-work.html" class="active">How Cookies Work</a>
         <a href="privacy-security.html">Privacy</a>
         <a href="key-concepts.html">Key Concepts</a>
+        <a href="quiz.html">Quiz</a>
         <a href="references.html">References</a>
         <a href="about.html">About Me</a>
     </nav>
@@ -67,6 +74,29 @@
                 <li>The website can recognize my session
                     or remember certain settings.</li>
             </ol>
+        </section>
+
+        <!-- Example of a real cookie header -->
+        <section>
+            <h2>What Does a Cookie Look Like?</h2>
+
+            <p>
+                A server sends a cookie using the
+                <strong>Set-Cookie</strong> HTTP response header.
+                The cookie has a name, a value, and optional
+                attributes that control how it works.
+            </p>
+
+            <pre class="code-box"><code>Set-Cookie: theme=dark; Max-Age=2592000; Secure; HttpOnly; SameSite=Lax</code></pre>
+
+            <p>
+                In this example, the cookie is named <code>theme</code>
+                with the value <code>dark</code>. It lasts 30 days
+                (2,592,000 seconds), it is only sent over HTTPS, and
+                JavaScript cannot read it. When I visit the site again,
+                my browser sends it back in the <strong>Cookie</strong>
+                request header.
+            </p>
         </section>
 
         <!-- Types of cookies -->

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Cookies and Privacy</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- defer: the script runs after the page HTML is loaded -->
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Website header -->
+    <header id="site-header">
+        <div class="title-row">
+            <!-- Cookie photo next to the title (falls back to a local drawing if the photo cannot load) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Choco_chip_cookie_bitten.jpg"
+                 alt="Bitten chocolate chip cookie" class="title-cookie"
+                 onerror="this.onerror=null; this.src='images/cookie.svg';">
+            <h1>Self-Assessment Quiz</h1>
+        </div>
+        <p>Test what you learned about cookies and privacy</p>
+    </header>
+
+    <!-- Navigation menu -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="how-cookies-work.html">How Cookies Work</a>
+        <a href="privacy-security.html">Privacy</a>
+        <a href="key-concepts.html">Key Concepts</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="references.html">References</a>
+        <a href="about.html">About Me</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- Intro and start button. The quiz form stays hidden until the user starts. -->
+        <section id="quiz-intro">
+            <h2>Before You Start</h2>
+            <p>
+                This quiz has <strong>10 questions</strong> about the topics on this website.
+                You have <strong>10 minutes</strong>. If time runs out, the quiz is
+                submitted automatically.
+            </p>
+            <ul>
+                <li>Fill-in-the-blank: type a short answer.</li>
+                <li>Multiple choice: pick <strong>one</strong> answer.</li>
+                <li>Multiple selection: pick <strong>all</strong> correct answers.</li>
+                <li>You need <strong>70% (7 of 10)</strong> to pass.</li>
+            </ul>
+            <button type="button" id="start-btn" class="btn btn-primary">Start Quiz</button>
+        </section>
+
+        <!-- Results panel (filled in by quiz.js after submit) -->
+        <section id="results" class="hidden" aria-live="polite"></section>
+
+        <!-- Timer bar, stays visible at the top while scrolling -->
+        <div id="timer-bar" class="hidden">
+            <span>Time left: <strong id="time-left">10:00</strong></span>
+            <span id="progress-text">0 of 10 answered</span>
+        </div>
+
+        <!-- The quiz form -->
+        <form id="quiz-form" class="hidden" novalidate>
+
+            <!-- Q1: fill in the blank -->
+            <fieldset class="question" data-q="1">
+                <legend><span class="q-num">1</span> Fill in the blank</legend>
+                <label for="q1">
+                    Cookies that are deleted when the browser session ends are called
+                    <strong>______</strong> cookies.
+                </label>
+                <input type="text" id="q1" name="q1" placeholder="Type your answer" autocomplete="off">
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q2: fill in the blank -->
+            <fieldset class="question" data-q="2">
+                <legend><span class="q-num">2</span> Fill in the blank</legend>
+                <label for="q2">
+                    The HTTP response header a server uses to send a cookie to the browser
+                    is called <strong>______</strong>.
+                </label>
+                <input type="text" id="q2" name="q2" placeholder="Type your answer" autocomplete="off">
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q3: fill in the blank -->
+            <fieldset class="question" data-q="3">
+                <legend><span class="q-num">3</span> Fill in the blank</legend>
+                <label for="q3">
+                    A cookie created by the website you are visiting is called a
+                    <strong>______</strong>-party cookie.
+                </label>
+                <input type="text" id="q3" name="q3" placeholder="Type your answer" autocomplete="off">
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q4: multiple choice (one answer) -->
+            <fieldset class="question" data-q="4">
+                <legend><span class="q-num">4</span> Multiple choice</legend>
+                <p>Which type of cookie is set by a different domain and is often used for tracking?</p>
+                <label class="choice"><input type="radio" name="q4" value="a"> Session cookie</label>
+                <label class="choice"><input type="radio" name="q4" value="b"> First-party cookie</label>
+                <label class="choice"><input type="radio" name="q4" value="c"> Third-party cookie</label>
+                <label class="choice"><input type="radio" name="q4" value="d"> Secure cookie</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q5: multiple choice -->
+            <fieldset class="question" data-q="5">
+                <legend><span class="q-num">5</span> Multiple choice</legend>
+                <p>What makes a persistent cookie different from a session cookie?</p>
+                <label class="choice"><input type="radio" name="q5" value="a"> It can only be read by JavaScript</label>
+                <label class="choice"><input type="radio" name="q5" value="b"> It has an expiration date and stays after the browser closes</label>
+                <label class="choice"><input type="radio" name="q5" value="c"> It is always created by advertisers</label>
+                <label class="choice"><input type="radio" name="q5" value="d"> It is stored on the server, not the browser</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q6: multiple choice (dropdown) -->
+            <fieldset class="question" data-q="6">
+                <legend><span class="q-num">6</span> Multiple choice</legend>
+                <label for="q6">Which cookie attribute stops JavaScript from reading the cookie?</label>
+                <select id="q6" name="q6">
+                    <option value="">-- Choose one --</option>
+                    <option value="a">Secure</option>
+                    <option value="b">HttpOnly</option>
+                    <option value="c">SameSite</option>
+                    <option value="d">Expires</option>
+                </select>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q7: multiple choice -->
+            <fieldset class="question" data-q="7">
+                <legend><span class="q-num">7</span> Multiple choice</legend>
+                <p>What is cookie consent?</p>
+                <label class="choice"><input type="radio" name="q7" value="a"> When a website asks users for permission to use certain cookies</label>
+                <label class="choice"><input type="radio" name="q7" value="b"> When the browser deletes all cookies automatically</label>
+                <label class="choice"><input type="radio" name="q7" value="c"> A password that protects cookies</label>
+                <label class="choice"><input type="radio" name="q7" value="d"> A law that bans all cookies</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q8: multiple choice -->
+            <fieldset class="question" data-q="8">
+                <legend><span class="q-num">8</span> Multiple choice</legend>
+                <p>Which cookie attribute makes sure a cookie is only sent over HTTPS?</p>
+                <label class="choice"><input type="radio" name="q8" value="a"> Domain</label>
+                <label class="choice"><input type="radio" name="q8" value="b"> Path</label>
+                <label class="choice"><input type="radio" name="q8" value="c"> Max-Age</label>
+                <label class="choice"><input type="radio" name="q8" value="d"> Secure</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q9: multiple selection (more than one correct) -->
+            <fieldset class="question" data-q="9">
+                <legend><span class="q-num">9</span> Multiple selection <em>(select all that apply)</em></legend>
+                <p>Which of these are good ways to protect your privacy online?</p>
+                <label class="choice"><input type="checkbox" name="q9" value="a"> Block third-party cookies when possible</label>
+                <label class="choice"><input type="checkbox" name="q9" value="b"> Share as much personal information as possible</label>
+                <label class="choice"><input type="checkbox" name="q9" value="c"> Delete cookies you do not need</label>
+                <label class="choice"><input type="checkbox" name="q9" value="d"> Never update your browser</label>
+                <label class="choice"><input type="checkbox" name="q9" value="e"> Review your browser privacy settings</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Q10: multiple selection -->
+            <fieldset class="question" data-q="10">
+                <legend><span class="q-num">10</span> Multiple selection <em>(select all that apply)</em></legend>
+                <p>What can websites use cookies for?</p>
+                <label class="choice"><input type="checkbox" name="q10" value="a"> Keeping you logged in</label>
+                <label class="choice"><input type="checkbox" name="q10" value="b"> Remembering items in a shopping cart</label>
+                <label class="choice"><input type="checkbox" name="q10" value="c"> Making your Internet connection faster</label>
+                <label class="choice"><input type="checkbox" name="q10" value="d"> Remembering your language preference</label>
+                <label class="choice"><input type="checkbox" name="q10" value="e"> Removing viruses from your computer</label>
+                <p class="feedback"></p>
+            </fieldset>
+
+            <!-- Form buttons -->
+            <div class="quiz-buttons">
+                <button type="submit" id="submit-btn" class="btn btn-primary">Submit Quiz</button>
+                <button type="button" class="btn btn-secondary retake-btn">Reset</button>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>IT 3203 - Web Development</p>
+        <p>This website was created for a class project at Kennesaw State University.</p>
+        <a href="https://ksuweb.github.io/IT3203/">IT 3203 Class Website</a>
+    </footer>
+
+</body>
+</html>

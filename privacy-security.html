@@ -12,7 +12,13 @@
 
     <!-- Website header -->
     <header id="site-header">
-        <h1>Privacy and Security</h1>
+        <div class="title-row">
+            <!-- Cookie photo next to the title (falls back to a local drawing if the photo cannot load) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Choco_chip_cookie_bitten.jpg"
+                 alt="Bitten chocolate chip cookie" class="title-cookie"
+                 onerror="this.onerror=null; this.src='images/cookie.svg';">
+            <h1>Privacy and Security</h1>
+        </div>
         <p>Learning how to protect our information online</p>
     </header>
 
@@ -20,8 +26,9 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="how-cookies-work.html">How Cookies Work</a>
-        <a href="privacy-security.html">Privacy</a>
+        <a href="privacy-security.html" class="active">Privacy</a>
         <a href="key-concepts.html">Key Concepts</a>
+        <a href="quiz.html">Quiz</a>
         <a href="references.html">References</a>
         <a href="about.html">About Me</a>
     </nav>
@@ -82,6 +89,35 @@
                 <li>Avoid sharing unnecessary personal information.</li>
                 <li>Keep the browser updated.</li>
             </ul>
+        </section>
+
+        <!-- Privacy laws -->
+        <section>
+            <h2>Cookie and Privacy Laws</h2>
+
+            <p>
+                Some governments have laws about how websites
+                can use cookies and personal data.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>GDPR and ePrivacy Directive (European Union):</strong>
+                    websites must ask for consent before using cookies that
+                    are not strictly necessary, such as advertising cookies.
+                    This is why many sites show cookie banners.
+                </li>
+                <li>
+                    <strong>CCPA (California, USA):</strong>
+                    gives users the right to know what personal information is
+                    collected and to opt out of the sale or sharing of it.
+                </li>
+            </ul>
+
+            <p class="tip">
+                <strong>Did you know?</strong> Browsers like Safari and Firefox
+                block many third-party tracking cookies by default.
+            </p>
         </section>
 
         <!-- Personal reflection -->
